@@ -1,0 +1,41 @@
+name: daraz-tek
+services:
+  mattermost:
+    image: mattermost/mattermost-team-edition
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 200
+    tmpfs:
+      - /tmp
+    ports:
+      - "8065:8065"
+    volumes:
+      - mattermost_data:/mattermost
+    environment:
+      TZ: Asia/Tokyo
+      MM_LOCALIZATIONSETTINGS_DEFAULTCLIENTLOCALE: ja
+      MM_BLEVESETTINGS_INDEXDIR: /mattermost/bleve-indexes
+      MM_SERVICESETTINGS_SITEURL: https://daraz-tek.beta.fogtype.com
+      MM_SQLSETTINGS_DRIVERNAME: postgres
+      MM_SQLSETTINGS_DATASOURCE: postgres://postgres:${POSTGRES_PASSWORD:?}@postgres:5432/postgres?sslmode=disable&connect_timeout=10
+      MM_TEAMSETTINGS_MAXUSERSPERTEAM: "100"
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 100
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /var/run/postgresql
+    volumes:
+      - postgres_data_v17:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD
+volumes:
+  mattermost_data:
+  postgres_data_v17:

@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+
+cd "${HOME}/daraz-tek.beta.fogtype.com"
+
+git pull --recurse-submodules --rebase --autostash
+docker compose up --build --detach
+
+cd -

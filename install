@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+
+sudo apt install -y git make
+git clone https://github.com/kou029w/daraz-tek.beta.fogtype.com
+make -C daraz-tek.beta.fogtype.com .env
