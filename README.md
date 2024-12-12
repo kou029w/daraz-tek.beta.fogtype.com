@@ -6,7 +6,7 @@ Slack のログの移行方法: <https://docs.mattermost.com/onboard/migrate-fro
 
 ## 構成
 
-- Ubuntu 22.04 LTS Server
+- Ubuntu 24.04 LTS Server
 
 ## 使用方法
 
