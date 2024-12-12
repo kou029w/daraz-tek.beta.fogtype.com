@@ -1,7 +1,7 @@
 name: daraz-tek
 services:
   mattermost:
-    image: mattermost/mattermost-team-edition
+    image: mattermost/mattermost-team-edition@sha256:c7a97a031db8d32da5d826a3d98e961b5f965531643e1c8399340bdb349795f7
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
@@ -23,7 +23,7 @@ services:
     depends_on:
       - postgres
   postgres:
-    image: postgres:17-alpine
+    image: postgres:17-alpine@sha256:d37d2c160d34430877c802e5adc22824a2ad453499db9bab1a2ceb2be6c1a46f
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
