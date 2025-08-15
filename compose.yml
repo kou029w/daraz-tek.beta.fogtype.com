@@ -23,7 +23,7 @@ services:
     depends_on:
       - postgres
   postgres:
-    image: postgres:17-alpine@sha256:6567bca8d7bc8c82c5922425a0baee57be8402df92bae5eacad5f01ae9544daa
+    image: postgres:17-alpine@sha256:ee77ed1d58c69c0ccd03adfb815d53481f495c36b2b1016eeba0d44f1835fff5
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
