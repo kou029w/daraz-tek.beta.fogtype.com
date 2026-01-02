@@ -1,0 +1,16 @@
+name: daraz-tek
+services:
+  reverse-proxy:
+    image: alpine
+    restart: unless-stopped
+    init: true
+    command: sleep infinity
+    networks:
+      - traefik
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.daraztek_reverse_proxy.rule: "Host(`daraz-tek.beta.fogtype.com`)"
+      traefik.http.services.daraztek_reverse_proxy.loadbalancer.server.url: http://rho.fogtype.com:8065
+networks:
+  traefik:
+    external: true

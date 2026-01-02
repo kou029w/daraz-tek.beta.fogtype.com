@@ -1,0 +1,3 @@
+name: daraztek_reverse_proxy
+compose_files:
+  - compose.reverse_proxy.yml
