@@ -1,7 +1,7 @@
 name: daraz-tek
 services:
   mattermost:
-    image: mattermost/mattermost-team-edition:11.4@sha256:4ab6e90570fecf95f4f86aad1846521a046354d9ef5fad114f66a530260f7db3
+    image: mattermost/mattermost-team-edition:11.4@sha256:cf5c73018a4d9d3ca55f0d02b2b7f2b79dd8d193266fa9254969e673f6e53214
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
