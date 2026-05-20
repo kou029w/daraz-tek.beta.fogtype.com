@@ -33,9 +33,21 @@ services:
       - /tmp
       - /var/run/postgresql
     volumes:
-      - postgres_data_v17:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
+    environment:
+      - POSTGRES_PASSWORD
+  old_db:
+    profiles:
+      - migration
+    image: postgres:17-alpine
+    tmpfs:
+      - /tmp
+      - /var/run/postgresql
+    volumes:
+      - postgres_data_v17:/var/lib/postgresql
     environment:
       - POSTGRES_PASSWORD
 volumes:
   mattermost_data:
   postgres_data_v17:
+  postgres_data:
